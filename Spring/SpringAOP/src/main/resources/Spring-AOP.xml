@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--方式一：使用原生Spring接口-->
+    <!--配置AOP:导入AOP的约束-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;切入点 expression：表达式，"execution(要执行的位置！* *)" &ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.jiejie.Proxy.Demo1.Service.UserServiceImpl.*(..))"/>-->
+<!--        &lt;!&ndash;执行环绕增强-->
+<!--           pointcut-ref：切入的位置&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+<!--    &lt;!&ndash;注册bean&ndash;&gt;-->
+<!--    <beans>-->
+<!--        &lt;!&ndash;主要业务类&ndash;&gt;-->
+<!--        <bean id="userServiceImpl" class="com.jiejie.Proxy.Demo1.Service.UserServiceImpl"/>-->
+<!--        &lt;!&ndash;新增业务类（中介附属操作）&ndash;&gt;-->
+<!--        <bean id="log" class="com.jiejie.Proxy.Demo1.Log.log"/>-->
+<!--        <bean id="afterLog" class="com.jiejie.Proxy.Demo1.Log.AfterLog"/>-->
+<!--    </beans>-->
+
+    <!--方式二：自定义类-->
+    <!--配置AOP:导入AOP的约束-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;自定义切面，ref：要引用的类&ndash;&gt;-->
+<!--        <aop:aspect ref="diyPointCut">-->
+<!--            &lt;!&ndash;切入点（主要业务）&ndash;&gt;-->
+<!--            <aop:pointcut id="point" expression="execution(* com.jiejie.Proxy.Demo1.Service.UserServiceImpl.*(..))"/>-->
+<!--            &lt;!&ndash;通知（中介附属操作）method：中介的附属操作，pointcut-ref：切入对象（房东）&ndash;&gt;-->
+<!--            <aop:before method="before" pointcut-ref="point"/>-->
+<!--            <aop:after method="after" pointcut-ref="point"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+<!--    &lt;!&ndash;注册bean&ndash;&gt;-->
+<!--    <beans>-->
+<!--        &lt;!&ndash;主要业务类&ndash;&gt;-->
+<!--        <bean id="userServiceImpl" class="com.jiejie.Proxy.Demo1.Service.UserServiceImpl"/>-->
+<!--        &lt;!&ndash;新增业务的类&ndash;&gt;-->
+<!--        <bean id="diyPointCut" class="com.jiejie.Proxy.Demo1.DiyLog.DiyPointCut"/>-->
+<!--    </beans>-->
+    <!--方式三：注解实现AOP-->
+    <!--开启注解支持-->
+    <aop:aspectj-autoproxy/>
+    <!--主要业务类（房东操作）-->
+    <bean id="userServiceImpl" class="com.jiejie.Proxy.Demo1.Service.UserServiceImpl"/>
+    <!--新增业务（中介操作）-->
+    <bean id="annotationPointCut" class="com.jiejie.Proxy.Demo1.Annotation.AnnotationPointCut"/>
+</beans>

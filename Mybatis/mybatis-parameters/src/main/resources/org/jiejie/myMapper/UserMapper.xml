@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-/ /mybatis. org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.jiejie.myMapper.UserMapper">
+    <!-- getUserByUserName(String userName) 需要传入参数-->
+    <select id="getUserByUserName" resultType="User">
+        select *
+        from user
+        where username=#{userName} # 1、可以使用任意的字符获取参数值
+
+    </select>
+
+    <!-- User checkLogin(String username,String password)-->
+    <select id="checkLogin" resultType="User">
+        select *
+        from user
+        where username=#{arg0} and password=#{arg1}
+    </select>
+
+    <!-- User checkLoginByMap(Map<String, Object> map) -->
+    <select id="checkLoginByMap" resultType="User">
+        select *
+        from user
+        where username=#{username} and password=#{password}
+    </select>
+
+    <!-- void insertNewUser(User user) -->
+    <insert id="insertNewUser">
+        insert into user
+#         访问的是User类中的get和set方法方法
+        values(null,#{username},#{password},#{age},#{gender},#{email})
+    </insert>
+    <!-- User checkLoginByParam(@Param("username")String username,@Param("password") String password) -->
+    <select id="checkLoginByParam" resultType="User">
+        select *
+        from user
+        where username=#{username} and password=#{password}
+    </select>
+</mapper>

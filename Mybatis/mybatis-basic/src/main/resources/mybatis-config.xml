@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration><!-- 配置 -->
+    <!--引入properties文件，使用${key}的方法来访问value-->
+    <properties resource="jdbc.properties{引入文件，修改}"/>
+
+    <!-- 类型别名：在Mybatis范围中，可以使用一个别名代表其他数据，映射文件中也可以使用  -->
+    <typeAliases>
+            <!-- 方式1：别名是"abc"-->
+<!--        <typeAlias type="org.jiejie.myEntity.User{实体类型，修改}" alias="abc"/>-->
+            <!-- 方式2：默认别名是User-->
+<!--        <typeAlias type="org.jiejie.myEntity.{实体类型，修改}"/>-->
+            <!-- 方式3：扫面包中全部类，全部使用默认别名-->
+<!--        <package name="org.jiejie.myEntity{实体类型包名，修改}"/>-->
+    </typeAliases>
+
+    <environments default="development">     <!-- 作为开发配置环境 -->
+        <environment id="development">       <!-- 环境变量 -->
+            <transactionManager type="JDBC"/><!-- 事务管理器 -->
+            <dataSource type="POOLED">       <!-- 数据源 管理数据库连接-->
+                <property name="driver" value="${jdbc.driver[properties文件内容，修改]}"/> <!--Mysql驱动-->
+                <property name="url" value="${jdbc.url[properties文件内容，修改]}"/> <!--数据库地址-->
+                <property name="username" value="${jdbc.username[properties文件内容，修改]}"/>  <!--Mysql用户名-->
+                <property name="password" value="${jdbc.password[properties文件内容，修改]}"/>  <!--Mysql密码-->
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--引入mybatis映射文件,用于执行SQL语句-->
+    <mappers>
+        <!-- resource:存放sql语句的配置文件 -->
+<!--        <mapper resource="mappers/UserMapper.xml{映射文件路径，修改}"/>-->
+        <!-- 方式1：通过扫面包 -->
+        <package name="org.jiejie.myMapper{全类型接口包名，修改}"/>
+    </mappers>
+</configuration>

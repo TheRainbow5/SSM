@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--id：bean的一位标识，class：对应的类的全类名 -->
+    <bean id="user" class="com.jiejie.Entity.User">
+        <property name="name" value="jiejie"/>
+        <property name="age" value="12"/>
+        <property name="tall" value="312"/>
+    </bean>
+</beans>

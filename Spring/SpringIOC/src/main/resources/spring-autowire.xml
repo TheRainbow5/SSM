@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    id必须和User属性名相同-->
+    <bean id="address" class="com.jiejie.Entity.Address">
+        <property name="name" value="北京中路"></property>
+    </bean>
+    <!--自动装载-->
+    <bean autowire="byType" id="user" class="com.jiejie.Entity.User">
+        <property name="name" value="jiejie"></property>
+        <property name="age" value="32"></property>
+        <property name="tall" value="150"></property>
+    </bean>
+
+</beans>

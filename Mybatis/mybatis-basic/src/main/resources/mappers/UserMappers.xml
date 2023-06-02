@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-/ /mybatis. org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.jiejie.myMapper.UserMapper">
+    <!--
+        1.namespace=接口的全类名
+    -->
+    <!-- int insertUser() -->
+    <insert id="insertUser">    # s
+        insert into user
+        values(null,'admin','123456',23,'男','12345@qq.com')
+    </insert>
+    <!-- void updateUser() -->
+    <update id="updateUser">
+        update user
+        set username='root',password='123123'
+        where id=3
+    </update>
+    <!-- void deleteUser() -->
+    <delete id="deleteUser">
+        delete from user
+        where id=1
+    </delete>
+    <!-- User getUserById()
+    resultType：设置结果类型，即查询的数据转为java类型
+    resultMap：自定义结果的映射类型，处理一对一或一对多映射关系
+    -->
+    <select id="getUserById" resultType="User">
+        select * from user
+        where id=2
+    </select>
+    <!-- List<User> getAllUser() -->
+    <select id="getAllUser" resultType="User">
+        select * from user
+    </select>
+</mapper>

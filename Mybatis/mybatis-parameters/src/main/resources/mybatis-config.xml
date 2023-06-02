@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration><!-- 配置 -->
+    <!--引入properties文件，使用${key}的方法来访问value-->
+    <properties resource="jdbc.properties"/>
+
+    <!-- 类型别名：在Mybatis范围中，可以使用一个别名代表其他数据，映射文件中也可以使用  -->
+    <typeAliases>
+        <!-- 方式3：扫面包中全部类，全部使用默认别名-->
+        <package name="org.jiejie.myEntity"/>
+    </typeAliases>
+
+    <environments default="development">     <!-- 作为开发配置环境 -->
+        <environment id="development">       <!-- 环境变量 -->
+            <transactionManager type="JDBC"/><!-- 事务管理器 -->
+            <dataSource type="POOLED">       <!-- 数据源 管理数据库连接-->
+                <property name="driver" value="${jdbc.driver}"/> <!--Mysql驱动-->
+                <property name="url" value="${jdbc.url}"/> <!--数据库地址-->
+                <property name="username" value="${jdbc.username}"/>  <!--Mysql用户名-->
+                <property name="password" value="${jdbc.password}"/>  <!--Mysql密码-->
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--引入mybatis映射文件,用于执行SQL语句-->
+    <mappers>
+        <!-- 方式1：通过扫面包 -->
+        <package name="org.jiejie.myMapper"/>
+    </mappers>
+</configuration>

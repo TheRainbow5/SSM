@@ -1,0 +1,10 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ıìïßûÿÿÿÿ8­ÈÁ˜„1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(€Ş £úÿÿÿÿ8ÍÈÁ˜„1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(·´Å8¬›“é†1
+T	java:S106"9Replace this use of System.out or System.err by a logger.(’ _8¬›“é†1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(à˜İøÿÿÿÿ8¬›“é†1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(†Ô€Ü8­›“é†1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ŠØ§ó8®›“é†1
+k
+java:S1128"IRemove this unused import 'org.springframework.context.annotation.Scope'.(şè®€ÿÿÿÿÿ8’Æ”é†1

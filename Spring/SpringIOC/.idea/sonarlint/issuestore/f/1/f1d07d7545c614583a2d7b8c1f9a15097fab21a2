@@ -1,0 +1,10 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Š„Ÿ¡
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(µĞˆŠıÿÿÿÿ
+M
+java:S1135	"2Complete the task associated to this TODO comment.(½åè·ùÿÿÿÿ
+c
+java:S1854"FRemove this useless assignment to local variable "applicationContext".(£ –ş8ùï’„1
+S	java:S106"9Replace this use of System.out or System.err by a logger.(´ß¿ùÿÿÿÿ
+T
+java:S1481"7Remove this unused "applicationContext" local variable.(£ –ş8ÿï’„1
