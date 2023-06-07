@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>更新用户信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+    <form th:action="@{/user}" method="post">
+        <!--  将post请求转为put请求-->
+        <input type="hidden" name="_method" value="PUT"/>
+        <td><input type="hidden" name="id" th:value="${user.id}"></td>
+        <table>
+            <tr><th colspan="2">update user</th></tr>
+            <tr>
+                <td>id</td>
+                <td><input disabled ="disabled" th:value="${user.id}"></td>
+            </tr>
+            <tr>
+                <td>username</td>
+                <td>
+                    <input type="text" name="username" th:value="${user.username}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>gender</td>
+                <td>
+                    <input type="radio" name="gender" th:field="${user.gender}" value="male"/>male
+                    <input type="radio" name="gender" th:field="${user.gender}" value="female"/>female
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="update">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
