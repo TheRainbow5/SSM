@@ -11,5 +11,8 @@
       </option>
       <option name="myCustomValuesEnabled" value="true" />
     </inspection_tool>
+    <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ADDITIONAL_TAGS" value="Description:,Author:,ClassName:,Version:,Date:,RestController：@Controller+@ResponseBody,ResponseBody：将java对象转为json格式响应给浏览器,Controller：注册bean对象，" />
+    </inspection_tool>
   </profile>
 </component>

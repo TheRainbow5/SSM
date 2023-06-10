@@ -210,6 +210,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/SpringMVC-UpLoadAndDownLoad/pom.xml" />
         <option value="$PROJECT_DIR$/SringMVC-Ajax/pom.xml" />
       </set>
     </option>

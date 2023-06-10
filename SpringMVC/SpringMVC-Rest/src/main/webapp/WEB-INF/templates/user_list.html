@@ -31,21 +31,21 @@
     </table>
     <!--删除的post请求-->
     <form id="deleteForm" method="post">
-        <input type="hidden" name="_method" value="delete">
+        <input name="_method" type="hidden" value="delete">
     </form>
 </div>
 
 <script th:src="@{static/js/vue.js}" type="text/javascript"></script>
 <script type="text/javascript">
-    var vue=new Vue({
-        el:"#app",
-        methods:{
-            deleteUser(){
+    var vue = new Vue({
+        el: "#app",
+        methods: {
+            deleteUser() {
                 //通过标签名获取form表单数组
-                var form=document.getElementById("deleteForm");
+                var form = document.getElementById("deleteForm");
                 //将超链接的href属性赋值给form表单的action属性
                 //event.target：当前触发事件
-                form.action=event.target.href;
+                form.action = event.target.href;
                 //提交表单
                 form.submit();
                 //阻止超链接的默认行为（还会执行原来的href）
