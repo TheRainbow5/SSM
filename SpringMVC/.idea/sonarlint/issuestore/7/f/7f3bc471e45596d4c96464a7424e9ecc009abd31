@@ -1,0 +1,22 @@
+
+q
+java:S11923"ODefine a constant instead of duplicating this literal "redirect:/user" 3 times.(¥‰÷ûÿÿÿÿ8Ÿ¡‚¬‰1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ş ºÓ8¡¡‚¬‰1
+T
+java:S1135"2Complete the task associated to this TODO comment.(½åè·ùÿÿÿÿ8¬¡‚¬‰1
+e
+java:S4488#"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(«‚‚‡8¯¡‚¬‰1
+g
+java:S4488/"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ƒò¹ª8°¡‚¬‰1
+j
+java:S4488<"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ùó©şÿÿÿÿ8²¡‚¬‰1
+e
+java:S4488K"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(İˆˆ¢8µ¡‚¬‰1
+p
+java:S4488W"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(åƒ³ùÿÿÿÿ8¹¡‚¬‰1
+u
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8º¡‚¬‰1
+u
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Qualifier'.(íàÄ®ıÿÿÿÿ8»¡‚¬‰1
+s
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8½¡‚¬‰1
