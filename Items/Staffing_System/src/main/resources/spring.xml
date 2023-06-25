@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--1、扫描包-->
+    <context:component-scan base-package="com.Rainbow">
+        <!--  注解方式排除扫描controller层      -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--2、引入jdbc.properties-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+    <!--3、配置数据源（连接数据库信息）-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+    <!--4、事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--5、开启事务注解驱动-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--配置Mybatis
+        mybatis的配置文件完全可以省略，所有属性配置都可以在之后的spring配置文件中进行配置
+        1、可以通过组件来配置Mybatis
+        2、通过原生的xml文件来配置Mybatis
+     -->
+    <!--配置SqLSessionFactoryBean，就可以直接再spring的ioc中获取SqLSessionFactory对象-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--1、设置数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--2、设置类型别名对应的包，默认是类名-->
+        <property name="typeAliasesPackage" value="com.Rainbow.Pojo"></property>
+    </bean>
+    <!--
+        配置mapper接口的扫描，可以将指定包下的所有mapper.xml映射文件，用于执行sql语句
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.Rainbow.mapper"></property>
+    </bean>
+</beans>
